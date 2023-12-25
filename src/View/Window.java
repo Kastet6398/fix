@@ -1,9 +1,9 @@
 package View;
 
-import java.awt.event.ActionListener;
+import Controller.MainController;
 
 public class Window extends BaseWindow {
-    public Window(int w, int h, ActionListener listener) {
+    public Window(int w, int h, MainController listener) {
         super(w, h, listener);
     }
 }

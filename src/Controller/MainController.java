@@ -9,19 +9,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainController implements ActionListener {
-    BaseModule module;
+    private MainWindow menu;
+    private BaseModule module = null;
+
     public MainController(){
         MainWindow mainWindow = new MainWindow(600, 400, this);
-        this.module = new Module2(mainWindow, "sasassa");
-    }
-
-    public void createWindow(int w, int h, ActionListener listener) {
-        BaseModule.createWindow(w, h, this);
+        this.menu = mainWindow;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        module.setLabel();
-        System.out.println(module.getLbltxt());
+        switch (e.getActionCommand()){
+            case "Module1":
+                module = new Module1(menu);
+                module.setLabel(menu.getBtn1(), "Btn1 clicked");
+            case "Module2":
+                module = new Module2(menu);
+                module.setLabel(menu.getBtn2(), "Btn2 clicked");
+        }
+    }
+
+    public void createWindow(int w, int h, ActionListener listener) {
+        module.createWindow(w, h, this);
     }
 }

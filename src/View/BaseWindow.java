@@ -1,34 +1,29 @@
 package View;
 
+import Controller.MainController;
+
 import javax.swing.*;
-import java.awt.event.ActionListener;
 
 public abstract class BaseWindow extends JFrame{
-    private JLabel label;
-    private ActionListener listener;
-    public BaseWindow(int w, int h, ActionListener listener){
+    private MainController controller;
+    public BaseWindow(int w, int h, MainController controller){
         super();
-        this.listener=listener;
         setSize(w, h);
         setLayout(null);
-        createBtn();
+        this.controller=controller;
         setVisible(true);
     }
-    public void createBtn(){
+
+    public JButton createBtn(int x, int y, String txt){
         JButton btn = new JButton();
-        btn.setBounds(100, 100, 200, 80);
-        label = createLabel("Click me");
-        btn.add(label);
-        btn.addActionListener(listener);
+        btn.setBounds(x, y, 200, 80);
+        btn.setText(txt);
+        btn.addActionListener(controller);
         add(btn);
         btn.setVisible(true);
+        return btn;
     }
-    public JLabel createLabel(String txt){
-        JLabel label = new JLabel(txt);
-        return label;
+    public void setBtnTxt(JButton btn, String txt){
+        btn.setText(txt);
     }
-    public JLabel getLabel() {
-        return label;
-    }
-
 }
