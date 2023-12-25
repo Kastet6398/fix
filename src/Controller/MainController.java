@@ -23,9 +23,11 @@ public class MainController implements ActionListener {
             case "Module1":
                 module = new Module1(menu);
                 module.setLabel(menu.getBtn1(), "Btn1 clicked");
+                break;
             case "Module2":
                 module = new Module2(menu);
                 module.setLabel(menu.getBtn2(), "Btn2 clicked");
+                break;
         }
     }
 

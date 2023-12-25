@@ -8,16 +8,15 @@ public abstract class BaseWindow extends JFrame{
     private MainController controller;
     public BaseWindow(int w, int h, MainController controller){
         super();
+        this.controller=controller;
         setSize(w, h);
         setLayout(null);
-        this.controller=controller;
         setVisible(true);
     }
 
     public JButton createBtn(int x, int y, String txt){
-        JButton btn = new JButton();
+        JButton btn = new JButton(txt);
         btn.setBounds(x, y, 200, 80);
-        btn.setText(txt);
         btn.addActionListener(controller);
         add(btn);
         btn.setVisible(true);
@@ -25,5 +24,6 @@ public abstract class BaseWindow extends JFrame{
     }
     public void setBtnTxt(JButton btn, String txt){
         btn.setText(txt);
+        System.out.println(btn);
     }
 }
