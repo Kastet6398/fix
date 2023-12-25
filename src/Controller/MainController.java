@@ -9,12 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainController implements ActionListener {
-    private MainWindow menu;
+    private final MainWindow menu;
     private BaseModule module = null;
 
     public MainController(){
-        MainWindow mainWindow = new MainWindow(600, 400, this);
-        this.menu = mainWindow;
+        this.menu = new MainWindow(600, 400, this);
     }
 
     @Override

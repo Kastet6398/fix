@@ -5,7 +5,7 @@ import Controller.MainController;
 import javax.swing.*;
 
 public abstract class BaseWindow extends JFrame{
-    private MainController controller;
+    private final MainController controller;
     public BaseWindow(int w, int h, MainController controller){
         super();
         this.controller=controller;
@@ -24,6 +24,5 @@ public abstract class BaseWindow extends JFrame{
     }
     public void setBtnTxt(JButton btn, String txt){
         btn.setText(txt);
-        System.out.println(btn);
     }
 }
