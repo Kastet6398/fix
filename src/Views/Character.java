@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Character extends JPanel {
     private BufferedImage img;
-    private int x = 0;
+    private int x = -40;
     private int y = 0;
 
     public Character() {
@@ -24,22 +24,13 @@ public class Character extends JPanel {
     }
 
     public void nextFire() {
-        x -= 146;
-        repaint();
+        x -= 100;
+        getParent().repaint();
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
         g.drawImage(img, x, y, null);
-    }
-
-    @Override
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
     }
 
     public void anim() {

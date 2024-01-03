@@ -3,6 +3,7 @@ package Views;
 import Controllers.BaseController;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class BaseWindow extends JFrame{
     private final BaseController controller;
@@ -17,7 +18,7 @@ public abstract class BaseWindow extends JFrame{
         setLayout(null);
 
         character = new Character();
-        character.setBounds(45, 0, 146, 106);
+        character.setBounds(0, 0, 110, 106);
         add(character);
 
         addKeyListener(controller);
